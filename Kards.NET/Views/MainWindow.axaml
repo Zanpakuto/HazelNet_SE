@@ -91,7 +91,7 @@
                                                FontSize="16"
                                                FontFamily = "Roboto"
                                                Margin="20,0">
-                                        Statistics
+                                        Analytics
                                     </TextBlock>
                                 </StackPanel>
                             </Button>

@@ -29,7 +29,7 @@ public partial class MainWindowViewModel : ViewModelBase
       _statsViewModel = statsViewModel;
       _studyViewModel = studyViewModel;
       Navigation = navigation;
-      Navigation.NavigateTo(_deckViewModel,"My Decks");// default view
+      Navigation.NavigateTo(_deckViewModel,"Card Decks");// default view
    }
    
 
@@ -42,7 +42,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void DeckView()
    {
-      Navigation.NavigateTo(_deckViewModel, "My Deck");
+      Navigation.NavigateTo(_deckViewModel, "Card Deck");
    }
    
    [RelayCommand]
@@ -54,7 +54,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void StatsView()
    {
-      Navigation.NavigateTo(_statsViewModel, "Stats");
+      Navigation.NavigateTo(_statsViewModel, "Analytics");
    }
 
    public void NavigateToPage(ViewModelBase viewModel, string pageName)
