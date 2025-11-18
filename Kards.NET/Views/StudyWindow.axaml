@@ -20,7 +20,7 @@
                 Margin = "10">
                 
                <Grid>
-                       <Carousel Name="Slides"
+                       <Carousel Name="Cards"
                                  ItemsSource="{Binding Kards}">
                                <Carousel.PageTransition >
                                        <CompositePageTransition>
