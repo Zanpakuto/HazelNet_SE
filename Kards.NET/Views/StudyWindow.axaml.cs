@@ -9,7 +9,12 @@ namespace Kards.NET.Views;
 
 public partial class StudyWindow : Window
 {
-    
+    public StudyWindow()
+    {
+        InitializeComponent();
+        if (Design.IsDesignMode)
+            DataContext = new StudyViewModel();
+    }
     public StudyWindow(StudyWindowViewModel vm, Decks d)
     {
         InitializeComponent();
@@ -19,11 +24,11 @@ public partial class StudyWindow : Window
     
     public void Next(object source, RoutedEventArgs args)
     {
-        Slides.Next();
+        Cards.Next();
     }
 
     public void Previous(object source, RoutedEventArgs args) 
     {
-        Slides.Previous();
+        Cards.Previous();
     }
 }
