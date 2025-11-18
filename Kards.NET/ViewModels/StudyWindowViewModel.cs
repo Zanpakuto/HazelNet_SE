@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Kards.NET.Models;
 
 namespace Kards.NET.ViewModels;
@@ -7,7 +8,6 @@ public class StudyWindowViewModel
 {
     private Decks Deck {get; set;} =  new();
     public ObservableCollection<Cards> Kards { get; set; } = new();
-
     
     
     public void LoadCard(Decks d)
