@@ -12,4 +12,6 @@ public class ReviewLog
     public DateTime Duration { get; set; }
     public DateTime ElapsedDays { get; set; }
     public DateTime ElapsedSeconds { get; set; }
+    
+    
 }
