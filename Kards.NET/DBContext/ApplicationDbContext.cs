@@ -18,6 +18,8 @@ public class ApplicationDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new CardsEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new DecksEntityTypeConfiguration());
+        
+        modelBuilder.Entity<Cards>().Ignore(c => c.IsFlipped);
     }
 }
 
