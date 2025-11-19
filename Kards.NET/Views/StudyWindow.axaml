@@ -19,36 +19,55 @@
                 Padding = "10"
                 Margin = "10">
                 
-               <Grid>
-                       <Carousel Name="Cards"
-                                 ItemsSource="{Binding Kards}">
-                               <Carousel.PageTransition >
-                                       <CompositePageTransition>
-                                               <PageSlide Duration="0:00:00.100" Orientation="Horizontal" />
-                                       </CompositePageTransition>
-                               </Carousel.PageTransition>
-                               
-                               <Carousel.ItemTemplate>
-                                       <DataTemplate>
-                                               <TextBlock  Text="{Binding CardName}"  
-                                                          FontWeight="Bold"
-                                                          FontSize="50"
-                                                          FontFamily = "Roboto"
-                                                          Foreground="#787878"
-                                                          Margin="15,0"
-                                                          HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center"/>
-                                       </DataTemplate>
+                <Grid RowDefinitions="*, Auto">
+                        <Grid Grid.Row="0">
+                                <Carousel Name="Cards"
+                                          ItemsSource="{Binding Kards}">
+                                       <Carousel.PageTransition >
+                                               <CompositePageTransition>
+                                                       <PageSlide Duration="0:00:00.100" Orientation="Horizontal" />
+                                               </CompositePageTransition>
+                                       </Carousel.PageTransition>
                                        
-                               </Carousel.ItemTemplate>
+                                       <Carousel.ItemTemplate>
+                                               <DataTemplate>
+                                                       <TextBlock  Text="{Binding CardName}"  
+                                                                  FontWeight="Bold"
+                                                                  FontSize="50"
+                                                                  FontFamily = "Roboto"
+                                                                  Foreground="#787878"
+                                                                  Margin="15,0"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"/>
+                                               </DataTemplate>
+                                               
+                                       </Carousel.ItemTemplate>
+                                       
+                               </Carousel>
                                
-                       </Carousel>
-                       
-                       <Panel Margin="20">
-                               <Button Background="White" FontSize="30" Click="Previous">&lt;</Button>
-                               <Button Background="White" FontSize="30" Click="Next" 
-                                       HorizontalAlignment="Right">&gt;</Button>
-                       </Panel>
+                               <Panel Margin="20">
+                                       <Button Background="White" FontSize="30" Click="Previous">&lt;</Button>
+                                       <Button Background="White" FontSize="30" Click="Next" 
+                                               HorizontalAlignment="Right">&gt;</Button>
+                               </Panel>
+                                
+                        </Grid>
+                        
+                        <Button Grid.Row="1"
+                                Content="{Binding CurrentCard.FlipButtonText }"
+                                Command="{Binding FlipCardCommand}"
+                                Margin="0,10"
+                                Background="#1e40af"
+                                FontSize="13"
+                                FontWeight="Medium"
+                                Foreground="#f1f5f9"
+                                CornerRadius="5"
+                                Height="50"
+                                Width="120"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"/>
                </Grid> 
                 
                 
