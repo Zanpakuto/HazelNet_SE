@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -10,11 +11,12 @@ namespace Kards.NET.Views;
 public partial class StudyWindow : Window
 {
     private StudyWindowViewModel ViewModel => (StudyWindowViewModel)DataContext!;
+ 
     public StudyWindow()
     {
         InitializeComponent();
-        if (Design.IsDesignMode)
-            DataContext = new StudyViewModel();
+        if(Design.IsDesignMode)
+            DataContext = new StudyWindowViewModel();
     }
     public StudyWindow(StudyWindowViewModel vm, Decks d)
     {
