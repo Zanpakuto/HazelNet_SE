@@ -19,39 +19,24 @@
                 Padding = "10"
                 Margin = "10">
                 
-                <Grid RowDefinitions="*, Auto">
-                        <Grid Grid.Row="0">
-                                <Carousel Name="Cards"
-                                          ItemsSource="{Binding Kards}">
-                                       <Carousel.PageTransition >
-                                               <CompositePageTransition>
-                                                       <PageSlide Duration="0:00:00.100" Orientation="Horizontal" />
-                                               </CompositePageTransition>
-                                       </Carousel.PageTransition>
-                                       
-                                       <Carousel.ItemTemplate>
-                                               <DataTemplate>
-                                                       <TextBlock  Text="{Binding CardName}"  
-                                                                  FontWeight="Bold"
-                                                                  FontSize="50"
-                                                                  FontFamily = "Roboto"
-                                                                  Foreground="#787878"
-                                                                  Margin="15,0"
-                                                                  HorizontalAlignment="Center"
-                                                                  VerticalAlignment="Center"/>
-                                               </DataTemplate>
-                                               
-                                       </Carousel.ItemTemplate>
-                                       
-                               </Carousel>
-                               
+                
+                              
+                
+                
+                
+        </Border>
+</Window>
+
+
+<!-- 
+ 
                                <Panel Margin="20">
                                        <Button Background="White" FontSize="30" Click="Previous">&lt;</Button>
                                        <Button Background="White" FontSize="30" Click="Next" 
                                                HorizontalAlignment="Right">&gt;</Button>
                                </Panel>
                                 
-                        </Grid>
+
                         
                         <Button Grid.Row="1"
                                 Content="{Binding CurrentCard.FlipButtonText }"
@@ -67,49 +52,6 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"/>
-               </Grid> 
-                
-                
-                
-        </Border>
-</Window>
-
-
-<!-- 
-<Grid ColumnDefinitions="Auto, *, Auto"
-                            VerticalAlignment="Center">
-                    
-                    <Button Grid.Column="0">
-                         <Image  Source="../Assets/Image/black-triangular-left.png" 
-                           Width="30" 
-                           Height="30"
-                           Stretch="Uniform"
-                           Margin="5,5"/>
-                        
-                        
-                    </Button>
-                    
-                   
-                        
-                    <TextBlock Grid.Column="1" Text="{Binding currentDisplay}"  
-                               FontWeight="Bold"
-                               FontSize="40"
-                               FontFamily = "Roboto"
-                               Foreground="#787878"
-                               Margin="15,0"
-                               HorizontalAlignment="Center"/>
-                        
-                        
-                        <Button Grid.Column="2">
-                                <Image  Source="../Assets/Image/black-triangular-right.png" 
-                                        Width="30" 
-                                        Height="30"
-                                        Stretch="Uniform"
-                                        Margin="5,5"/>
-                                
-                        </Button>
-                        
-                </Grid>
+                                VerticalContentAlignment="Center"/
 -->
 
