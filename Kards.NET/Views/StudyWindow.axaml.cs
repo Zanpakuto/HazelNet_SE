@@ -9,6 +9,7 @@ namespace Kards.NET.Views;
 
 public partial class StudyWindow : Window
 {
+    private StudyWindowViewModel ViewModel => (StudyWindowViewModel)DataContext!;
     public StudyWindow()
     {
         InitializeComponent();
@@ -25,10 +26,20 @@ public partial class StudyWindow : Window
     public void Next(object source, RoutedEventArgs args)
     {
         Cards.Next();
+        ResetCurrentCardFlipState();
     }
 
     public void Previous(object source, RoutedEventArgs args) 
     {
         Cards.Previous();
+        ResetCurrentCardFlipState();
+    }
+    
+    private void ResetCurrentCardFlipState()
+    {
+        if (ViewModel.CurrentCard != null)
+        {
+            ViewModel.CurrentCard.IsFlipped = false;
+        }
     }
 }
