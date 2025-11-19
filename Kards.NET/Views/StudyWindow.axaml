@@ -19,29 +19,48 @@
                 Padding = "10"
                 Margin = "10">
                 
-                
-                              
-                
-                
-                
-        </Border>
-</Window>
-
-
-<!-- 
- 
-                               <Panel Margin="20">
-                                       <Button Background="White" FontSize="30" Click="Previous">&lt;</Button>
-                                       <Button Background="White" FontSize="30" Click="Next" 
-                                               HorizontalAlignment="Right">&gt;</Button>
-                               </Panel>
+                <Grid RowDefinitions="Auto, *,Auto, Auto">
+                        <TextBlock Grid.Row="0"
+                                   Text="{Binding Deck.DeckName}"
+                                   FontWeight="SemiBold"
+                                   FontSize="20"
+                                   Foreground="#94a3b8"
+                                   FontFamily="Roboto"
+                                   Margin="0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"/>
+                         
+                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto" 
+                              Margin="5,10">
+                                <Button Grid.Column="0" Background="White" FontSize="30" Click="Previous">&lt;</Button>
                                 
-
+                                <Carousel Grid.Column="1" 
+                                          Name="Cards"
+                                          MinHeight="150"
+                                          ItemsSource="{Binding Kards}"
+                                          SelectedIndex="{Binding CurrentCardIndex}">
+                                        <Carousel.ItemTemplate>
+                                                <DataTemplate>
+                                                        <TextBlock  Text ="{Binding DisplayText}"  
+                                                                    FontWeight="Bold"
+                                                                    FontSize="60"
+                                                                    FontFamily = "Roboto"
+                                                                    Foreground="#1e293b"
+                                                                    Margin="5,20"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                        </Carousel.ItemTemplate>
+                                </Carousel>
+                            
+                                <Button Grid.Column="2" Background="White" FontSize="30" Click="Next" 
+                                        HorizontalAlignment="Right">&gt;</Button>
+                        </Grid>
                         
-                        <Button Grid.Row="1"
+                        <Button Grid.Row="2"
                                 Content="{Binding CurrentCard.FlipButtonText }"
                                 Command="{Binding FlipCardCommand}"
-                                Margin="0,10"
+                                Margin="5,20"
                                 Background="#1e40af"
                                 FontSize="13"
                                 FontWeight="Medium"
@@ -49,9 +68,25 @@
                                 CornerRadius="5"
                                 Height="50"
                                 Width="120"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
                                 HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"/
--->
+                                VerticalContentAlignment="Center"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"/>
+                        
+                        
+                        <ProgressBar Grid.Row="3"
+                                     Height="15"
+                                     HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Bottom"
+                                     Foreground="#059669"
+                                     Minimum="0"
+                                     Maximum="{Binding Kards.Count}"
+                                     Value="{Binding CurrentCardIndex}"/>  
+                </Grid>
+                
+                
+        </Border>
+</Window>
+
+
 
