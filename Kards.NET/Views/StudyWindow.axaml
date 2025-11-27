@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         SystemDecorations="Full"
         WindowState="Normal"
-        Title="Study Window">
+        Title="{Binding Deck.DeckName}">
 
         <Border Background="#ffffff"
                 Height="400"
@@ -19,18 +19,9 @@
                 Padding = "10"
                 Margin = "10">
                 
-                <Grid RowDefinitions="Auto, *,Auto, Auto">
-                        <TextBlock Grid.Row="0"
-                                   Text="{Binding Deck.DeckName}"
-                                   FontWeight="SemiBold"
-                                   FontSize="20"
-                                   Foreground="#94a3b8"
-                                   FontFamily="Roboto"
-                                   Margin="0,0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"/>
+                <Grid RowDefinitions=" *,Auto, Auto,Auto">
                          
-                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto" 
+                        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" 
                               Margin="5,10">
                                 <Button Grid.Column="0" Background="White" FontSize="30" Click="Previous">&lt;</Button>
                                 
@@ -57,10 +48,10 @@
                                         HorizontalAlignment="Right">&gt;</Button>
                         </Grid>
                         
-                        <Button Grid.Row="2"
+                        <Button Grid.Row="1"
                                 Content="{Binding CurrentCard.FlipButtonText }"
                                 Command="{Binding FlipCardCommand}"
-                                Margin="5,20"
+                                Margin="5,10"
                                 Background="#1e40af"
                                 FontSize="13"
                                 FontWeight="Medium"
@@ -73,9 +64,53 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"/>
                         
+                        <Grid Grid.Row="2" ColumnDefinitions="Auto, Auto, Auto" 
+                              HorizontalAlignment="Center" Margin="0,5,0,10" IsVisible="{Binding IsVisible }" >
+                                <!--Difficulty Button-->
+                                <Button Grid.Column="0"
+                                        Command="{Binding EasyDifficultyCommand}"
+                                        CommandParameter="{Binding CurrentCard}"
+                                        Content="Easy"
+                                        Background="#5C899D"
+                                        Margin="5,0"
+                                        FontSize="11"
+                                        Foreground="#f1f5f9"
+                                        CornerRadius="15"
+                                        Height="30"
+                                        Width="70"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"/>
+                                
+                                <Button Grid.Column="1"
+                                        Command="{Binding MediumDifficultyCommand}"
+                                        CommandParameter="{Binding CurrentCard}"
+                                        Content="Medium"
+                                        Background="#5C899D"
+                                        Margin="5,0"
+                                        FontSize="11"
+                                        Foreground="#f1f5f9"
+                                        CornerRadius="15"
+                                        Height="30"
+                                        Width="70"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"/>
+                                <Button Grid.Column="2"
+                                        Command="{Binding HardDifficultyCommand}"
+                                        CommandParameter="{Binding CurrentCard}"
+                                        Content="Hard"
+                                        Background="#5C899D"
+                                        Margin="5,0"
+                                        FontSize="11"
+                                        Foreground="#f1f5f9"
+                                        CornerRadius="15"
+                                        Height="30"
+                                        Width="70"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"/>
+                        </Grid>
                         
                         <ProgressBar Grid.Row="3"
-                                     Height="15"
+                                     Height="10"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Bottom"
                                      Foreground="#059669"
