@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
@@ -9,6 +10,11 @@ public partial class StudyWindowViewModel : ObservableObject
 {
     [ObservableProperty] 
     private Decks _deck;
+
+    [ObservableProperty]
+    private bool _isVisible;
+
+  
     public ObservableCollection<Cards> Kards { get; set; } = new();
     
     
@@ -38,6 +44,30 @@ public partial class StudyWindowViewModel : ObservableObject
     {
         if (CurrentCard != null)
             CurrentCard.IsFlipped = !CurrentCard.IsFlipped;
+        IsVisible = !IsVisible;
+    }
+
+    public void ResetVisibility()
+    {
+        IsVisible = false;
+    }
+
+    [RelayCommand]
+    public void EasyDifficulty(Cards card)
+    {
+        Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Easy");
+    }
+    
+    [RelayCommand]
+    public void MediumDifficulty(Cards card)
+    {
+        Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Medium");
+    }
+    
+    [RelayCommand]
+    public void HardDifficulty(Cards card)
+    {
+        Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Hard");
     }
     
 }

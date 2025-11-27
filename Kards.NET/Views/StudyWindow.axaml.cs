@@ -29,12 +29,14 @@ public partial class StudyWindow : Window
     {
         Cards.Next();
         ResetCurrentCardFlipState();
+        ViewModel.ResetVisibility();
     }
 
     public void Previous(object source, RoutedEventArgs args) 
     {
         Cards.Previous();
         ResetCurrentCardFlipState();
+        ViewModel.ResetVisibility();
     }
     
     private void ResetCurrentCardFlipState()
@@ -44,4 +46,5 @@ public partial class StudyWindow : Window
             ViewModel.CurrentCard.IsFlipped = false;
         }
     }
+    
 }
