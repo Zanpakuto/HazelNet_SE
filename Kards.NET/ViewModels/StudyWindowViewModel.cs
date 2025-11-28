@@ -8,32 +8,31 @@ namespace Kards.NET.ViewModels;
 
 public partial class StudyWindowViewModel : ObservableObject
 {
-    [ObservableProperty] 
-    private Decks _deck;
+    [ObservableProperty] private Decks _deck;
 
-    [ObservableProperty]
-    private bool _isVisible;
+    [ObservableProperty] private bool _isVisible;
 
-  
+
     public ObservableCollection<Cards> Kards { get; set; } = new();
-    
-    
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(CurrentCard))]
+
+
+    [ObservableProperty] [NotifyPropertyChangedFor(nameof(CurrentCard))]
     private int _currentCardIndex;
-    
-    public Cards? CurrentCard => CurrentCardIndex >= 0 && CurrentCardIndex <= Kards.Count ? Kards[CurrentCardIndex] : null;
-    
-    
+
+    public Cards? CurrentCard =>
+        CurrentCardIndex >= 0 && CurrentCardIndex <= Kards.Count ? Kards[CurrentCardIndex] : null;
+
+
     public void LoadCard(Decks d)
-    { 
-      
+    {
+
         Deck = d;
         Kards.Clear();
         foreach (var c in Deck.Cards)
         {
             Kards.Add(c);
         }
+
         CurrentCardIndex = 0;
         OnPropertyChanged(nameof(CurrentCard));
 
@@ -57,17 +56,23 @@ public partial class StudyWindowViewModel : ObservableObject
     {
         Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Easy");
     }
-    
+
     [RelayCommand]
-    public void MediumDifficulty(Cards card)
+    public void GoodDifficulty(Cards card)
     {
         Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Medium");
     }
-    
+
     [RelayCommand]
     public void HardDifficulty(Cards card)
     {
         Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Hard");
     }
-    
+
+    [RelayCommand]
+    public void AgainDifficulty(Cards card)
+    {
+        Console.WriteLine($"Rating of {card.Id} of deck {Deck.Id}is set to Again");
+    }
+
 }
